@@ -23,7 +23,7 @@ func main() {
 	fmt.Println("---- after ----")
 	print(data)
 
-	// safe changes
+	// save changes
 	if err := elfstore.Save(data); err != nil {
 		log.Fatal(err)
 	}

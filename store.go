@@ -1,4 +1,5 @@
-// Package elfstore is a persistence key/value string storage system
+// Package elfstore is a persistent key/value string storage system without
+// unnecessary things like a database or a file.
 package elfstore
 
 import (
@@ -14,6 +15,7 @@ import (
 
 var storage = `                                                                `
 
+// Load loads the data in storage into a map.
 func Load() (map[string]string, error) {
 	d := make(map[string]string)
 	if strings.HasPrefix(storage, "{") {
@@ -23,7 +25,7 @@ func Load() (map[string]string, error) {
 	return d, nil
 }
 
-// Save keeps data safe
+// Save keeps data safe.
 func Save(data map[string]string) error {
 	b, err := json.Marshal(data)
 	if err != nil {
